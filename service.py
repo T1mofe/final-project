@@ -10,5 +10,4 @@ def start_timer():
     start_time = random_number()
     for i in range(start_time):
         time.sleep(1)
-
-    
+        
