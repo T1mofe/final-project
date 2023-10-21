@@ -9,13 +9,14 @@ class Reaction:
 
 #создаем функцию для старта
     def start_game(self):
-        self.frame.config(bg='red')
+        self.frame.config(bg='green')
         self.start_time = time.time()
         self.frame.bind('<Button-1>', self.click)
     
 #по нажатию левой кнопки мыши у нас начинается отсчет до начала ,если мы нажмем слишком рано  , то функия прервется  
     def btn_click(self):
-        self.label.config(text='...')
+        self.frame.config(bg='red')
+        self.label.config(text='Приготовьтесь...')
         self.cancel = self.speed.after(randint(1000, 5000), self.start_game)
         self.frame.bind('<Button-1>', self.error_click)
 
@@ -35,6 +36,7 @@ class Reaction:
         self.frame.config(bg='red')
         self.label.config(text=f'Секунды: {round(self.end_time - self.start_time, 3)}')
 
+#сама конструкция тк интера которая запускает окно определяет: его размер, задний фон, кнопки, framы
     def start_program(self):
         self.speed = Tk()
 
@@ -58,4 +60,5 @@ class Reaction:
 
         self.speed.mainloop()
 
+#запускающая окно
 program = Reaction()
